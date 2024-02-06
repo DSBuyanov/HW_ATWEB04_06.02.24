@@ -33,8 +33,7 @@ public class MainPage {
         closeCreateStudentsFormIcon.click();
         modalWindow.should(disappear);
         firstGroupNameCell.shouldHave(text(groupName));
-//        SelenideElement groupRow = rowsInGroupTable.findBy(text(groupName));
-//        groupRow.shouldBe(visible);
+
 
     }
 

@@ -87,20 +87,19 @@ public class GeekBrainsStandTests {
         mainPage = new MainPage();
         assertTrue(mainPage.getUsernameLabelText().contains(USERNAME));
 
-        // Навигация на страницу профиля пользователя
         $(By.xpath("//*[@id='app']/main/nav/ul/li[3]/a")).click();
-        // Открыть модальное окно Editing
+
         $(By.xpath("//*[@id='app']/main/nav/ul/li[3]/div/ul/li[1]/span[2]")).click();
-        // Открыть форму редактирования даты рождения
+
         $(By.xpath("//*[@id='app']/main/div/div/div[1]/div/div[1]/div/div/div/div[3]/div/button[2]")).click();
         // Изменить значение даты рождения
         String script = "document.querySelector('input[type=\"date\"]').value='1992-01-02';";
         executeJavaScript(script);
         // Нажать на кнопку Save и закрыть модальное окно
         $(By.xpath("//*[@id='update-item']/div[9]/button/span")).click();
-        // Закрыть модальное окно редактирования профиля
+
         $(By.xpath("//*[@id='app']/main/div/div/div[2]/div[2]/div/div[1]/button")).click();
-        // Проверить, что изменения применились в поле Date of Birth в секции Additional Info
+
         $(By.xpath("//*[@id='app']/main/div/div/div[1]/div/div[2]/div/div[2]/div[2]"))
                 .shouldHave(text("01.02.1992"));
     }
